@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>上品折扣后台管理</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/chosen.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/skins.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../js/layui/css/layui.css">
+</head>
+
+<body>
+<div class="main-page">
+    <div class="mt clearfix">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>供应商编码</th>
+                <th>供应商名称</th>
+                <th>品牌编码</th>
+                <th>品牌名称</th>
+                <th>品类编码</th>
+                <th>品类名称</th>
+                <th class="text-right">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1611072047</td>
+                <td>宝盛道吉</td>
+                <td>B01</td>
+                <td>Nike</td>
+                <td>A</td>
+                <td>儿童</td>
+                <td class="text-right">
+                    <a href="javascript:modifyFunc();">修改</a>
+                    <span class="text-explode">|</span>
+                    <a href="javascript:modifyFunc();">审批</a>
+                </td>
+            </tr>
+            <tr>
+                <td>1611072151</td>
+                <td>宝盛道吉</td>
+                <td>B01</td>
+                <td>Nike</td>
+                <td>A</td>
+                <td>儿童</td>
+                <td class="text-right">
+                    <a href="javascript:modifyFunc();">修改</a>
+                    <span class="text-explode">|</span>
+                    <a href="javascript:modifyFunc();">审批</a>
+                </td>
+            </tr>
+            <tr>
+                <td>1611072097</td>
+                <td>宝盛道吉</td>
+                <td>B01</td>
+                <td>Nike</td>
+                <td>A</td>
+                <td>儿童</td>
+                <td class="text-right">
+                    <a href="javascript:modifyFunc();">修改</a>
+                    <span class="text-explode">|</span>
+                    <a href="javascript:modifyFunc();">审批</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="7">
+                    <div class="pull-right page-box">
+                        <div class="pagination-info">共有1条，每页显示：20条</div>
+                        <ul class="pagination">
+                            <li class="disabled" page-index="1"><a>«</a></li>
+                            <li class="disabled" page-index="0"><a>‹</a></li>
+                            <li class="active" page-index="1"><a>1</a></li>
+                            <li page-index="2"><a>2</a></li>
+                            <li page-index="3"><a>3</a></li>
+                            <li page-index="4"><a>4</a></li>
+                            <li class="disabled" page-index="2"><a>›</a></li>
+                            <li class="disabled" page-index="1"><a>»</a></li>
+                        </ul>
+                        <div class="pagination-goto">
+                            <input type="text" class="ipt form-control" id="gotoPageNo">
+                            <button type="button" class="btn btn-default" id="goBtn">GO</button>
+                            <input type="hidden" id="totalCount" name="totalCount" value="100">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="mt clearfix">
+        <div class="page-tip">
+            <b>温馨提示：</b>
+            <p>• 原模板中“色系”列，不再需要填写；</p>
+            <p>• 原模板中尺码填写有三列“国标尺码、企业尺码1、企业尺码2”，现只保留一列“尺码”列。填写规则要认真查看供应商主数据采集模板中“主数据模板录入规则”哦。</p>
+            <p>• 请您每次填写新增货品信息时，一定要在供应商服务平台右上角“资料下载”中下载最新版供应商主数据采集模板填写。</p>
+        </div>
+    </div>
+    <div class="no-data-info" style="display:none"><i class="fa"></i><span class="ng-binding">没有查询到符合条件的结果，请尝试更改关键词或其它选项</span></div><!-- 当没有查询结果时显示 -->
+</div>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/jquery.placeholder.min.js"></script>
+<script src="../../js/jquery.chosen.min.js"></script>
+<script src="../../js/layer/layer.js"></script>
+<script src="../../js/laydate/laydate.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/layui/layui.js"></script>
+<script src="../../js/layui/lay/modules/layedit.js"></script>
+<script>
+    //修改/编辑
+    function modifyFunc(trID){
+        layer.open({
+            type: 1,
+            btn:['修改','提交','取消'],
+            title: '修改活动',
+            shade: 0.6,
+            moveType: 1,
+            shift: -1,
+            area: ['900px','500px'],
+            content:'<div class="form-view alert-form-view">'+
+            '<form action="" id="">'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>通知标题：</label>'+
+            '<div class="row">'+
+            '<input type="text" size="30" class="ipt ipt-w300 form-control"><a href="javascript:admin();" class="btn btn-primary" style="float: right">查询供应商编码</a>'+
+            '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="label">公告通知：</label>'+
+            '<div class="row">'+
+            '<label class="rc">'+
+            '<input type="radio" name="sex" id="shi" checked="checked"><span>是</span>'+
+            '</label>'+
+            '<label class="rc" style="margin-left: 50px">'+
+            '<input type="radio" name="sex" id="fou" ><span>否</span>'+
+            '</label>'+
+            '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>供应商编码：</label>'+
+            '<div class="row" style="position: relative">'+
+            '<input type="text" size="30" class="ipt ipt-w300 form-control" id="inpu">' +
+            '<a href="javascript:;" class="btn btn-primary" id="tianjia" style="position: absolute;top: 0;left: 256px;">' +
+            '添加' +
+            '</a>'+
+            '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>添加结果：</label>'+
+            '<div class="row">'+
+            '<div id="d1" style="border: 1px solid #ccc;min-height: 32px;max-height:102px;overflow:auto;width: 313px;">'+
+            '</div>'+
+            '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>主题内容：</label>'+
+            '<div class="row">'+
+            '<textarea class="textarea form-not-null" form-groups="3" cols="" id="contentUpdateOfPT" ></textarea>'+
+            '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>附件：</label>'+
+            '<div class="row">'+
+            '<input class="file" type="file">'+
+            '</div>'+
+            '</div>'+
+            '</form>'+
+            '</div>',
+            success: function(layero, index){
+                var shi = $('#shi').attr('checked');
+                if(shi==='checked'){
+                    $('#inpu').attr('disabled','disabled');
+                }
+                layui.use('layedit', function(){
+                    layedit = layui.layedit;
+                    //文本编辑器
+                    editorIndex =layedit.build('contentUpdateOfPT',{
+                        height: 180 ,//设置编辑器高度
+                        tool: [ 'strong' ,'italic','underline' ,'del' ,'|','left' ,'center' ,'right','image']
+                    });
+                });
+            },
+            //点击确认按钮方法
+            btn2: function(index, layero){
+                //校验表单内容错误给父级添加has-error
+                // $('#newSupplierName').parents('.form-group').addClass('has-error');
+                //点击确认后添加disabled 防止表单重复提交
+                layero.find('.layui-layer-btn0').addClass('disabled').text('提交中...');
+                //后台返回提交结果 并执行提示词和关闭弹层
+                layer.msg('提交成功');
+                layer.close(index);
+            },
+            btn1:function(){
+                modification()
+            }
+        });
+        $('#tianjia').click(function(){
+            al = [];
+            var arr = $('#inpu').val();
+            if(arr!==''){
+                al.push(arr);
+            }else {
+                alert('请输入供应商编码');
+            }
+            for(var i=0;i<al.length;i++){
+                var ars = '<div style="display: inline-block;margin:0 10px;line-height:32px;">'+al[i]+'<a class="c1" href="javascript:;"><i class="fa fa-remove"></i></a>'+'</div>';
+                $('#d1').append(ars);
+            }
+            $('.c1').click(function(){
+                $(this).parent().remove();
+            });
+        });
+        $('#shi').click(function(){
+            $('#inpu').attr('disabled','disabled').val('');
+        });
+        $('#fou').click(function(){
+            $('#inpu').removeAttr('disabled');
+        });
+    }
+    function admin(){
+        layer.open({
+            type: 1,
+            btn:['取消'],
+            title: '修改活动',
+            shade: 0.6,
+            moveType: 1,
+            shift: -1,
+            area:['550px'],
+            content:'<div class="form-view alert-form-view">'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>供应商名称：</label>'+
+            '<div class="row">'+
+            '<input type="text" size="30" class="ipt ipt-w300 form-control"><a href="javascript:;" class="btn btn-primary">查询</a>'+
+            '</div>'+
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="label"><span class="text-danger">* </span>供应商编码：</label>'+
+            '<div class="row">'+
+            '<input type="text" size="30" class="ipt ipt-w300 form-control">'+
+            '</div>'+
+            '</div>'+
+            '</div>'
+        });
+    }
+    function modification(){
+        layer.confirm('是否确定修改数据?', {icon: 3, title:'提示'}, function(index){
+            layer.msg('修改成功');
+            layer.close(index);
+        });
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>上品折扣后台管理系统</title>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/skins.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body class="page-loding skin-blue" style="overflow:hidden;">
+    <div id="ajax-loader" style="cursor: progress; position: fixed; top: -50%; left: -50%; width: 200%; height: 200%; background: #fff; z-index: 10000; overflow: hidden;">
+        <img src="images/ajax-loader.gif" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto;" />
+    </div>
+    <div class="wrapper">
+        <!--头部信息-->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-mini"><img src="images/logo.png"></span>
+                <span class="logo-lg"><img src="images/logo.png"><strong>上品折扣后台管理</strong></span>
+            </div>
+            <div class="navbar">
+                <div class="navbar-menu">
+                    <div class="navbar-item">
+                        <a class="menuItem navbar-btn" data-id="download" href="download.html"><i class="fa fa-xiazai"></i>资料下载</a>
+                    </div>
+                    <div class="navbar-item">
+                        <a class="navbar-btn dropdown-btn" href="javascript:;">VIP中P的Admin<i class="fa fa-xiala"></i></a>
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li><a class="menuItem" data-id="userInfo" href="/page/userInfo.html">修改资料</a></li>
+                                <li><a href="javascript:void(0);">清空缓存</a></li>
+                                <!-- <li><a href="javascript:void(0);"></i>皮肤设置</a></li> -->
+                                <li class="divider"></li>
+                                <li><a href="javascript:loginOut();">安全退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--左边导航-->
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-inner">
+                    <div class="toogle-swatch">
+                        <a class="sidebar-toggle">
+                            <i class="fa fa-kaiguan"></i>
+                        </a>
+                    </div>
+                    <ul id="sidebar-menu" class="sidebar-menu">
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-quanxian"></i><span>权限管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="main" href="page/permission/userManagement.html"><i class="fa fa-yonghu"></i>用户管理</a></li>
+                                <li><a class="menuItem" data-id="" href="page/permission/roleManagement.html"><i class="fa fa-juese"></i>角色管理</a></li>
+                                <li><a class="menuItem" data-id="" href="page/permission/treeview.html"><i class="fa fa-juese"></i>权限管理</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-cuxiao"></i><span>促销活动管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/campaign/discount.html"><i class="fa fa-dingdanchaxun"></i>创建折扣活动</a></li>
+                                <li><a class="menuItem" data-id="" href="page/campaign/fixed.html"><i class="fa fa-songquan"></i>创建一口价活动</a></li>
+                                <li><a class="menuItem" data-id="" href="page/campaign/campaign.html"><i class="fa fa-dingdanchaxun"></i>查询折扣活动</a></li>
+                                <li><a class="menuItem" data-id="" href="page/campaign/buynow%20.html"><i class="fa fa-songquan"></i>查询一口价活动</a></li>
+                                <li><a class="menuItem" data-id="" href="page/campaign/enlist.html"><i class="fa fa-duiyingguanxi"></i>报名参加活动</a></li>
+                                <li><a class="menuItem" data-id="" href="page/campaign/informationRegistration.html"><i class="fa fa-duiyingguanxi"></i>促销</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-padxinxi"></i><span>订单协同</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/orderForm/useName.html"><i class="fa fa-padxinxi"></i>查询订单</a></li>
+                                <li><a class="menuItem" data-id="" href="page/orderForm/leadingIn.html"><i class="fa fa-padzixun"></i>创建订单</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-feiyongguanxi"></i><span>品价查询</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/report/settlement.html"><i class="fa fa-jifenchaxun"></i>销售查询</a></li>
+                                <li><a class="menuItem" data-id="" href="page/report/settlementDetail.html"><i class="fa fa-dixian"></i>库存查询</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-zhushuju"></i><span>主数据管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="atTheCounterInformation" href="page/masterData/channel.html"><i class="fa fa-shougongluru"></i>主数据导入</a></li>
+                                <li><a class="menuItem" data-id="atTheCounterInformation" href="page/masterData/atTheCounterInformation.html"><i class="fa fa-pinpai"></i>主数据屏蔽</a></li>
+                                <li><a class="menuItem" data-id="correspondenceRelationship" href="page/masterData/correspondenceRelationship.html"><i class="fa fa-piliangshangzai"></i>取消屏蔽</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-shenhe"></i><span>合同管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/contractSupervision/contract.html"><i class="fa fa-upload"></i>合同上传</a></li>
+                                <li><a class="menuItem" data-id="" href="page/contractSupervision/downloads.html"><i class="fa fa-down"></i>合同下载</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-jiesuan"></i><span>结算数据管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/balance/batchUpload.html"><i class="fa fa-down"></i>结算数据导入</a></li>
+                                <li><a class="menuItem" data-id="" href="page/balance/account.html"><i class="fa fa-jifenchaxun"></i>结算数据查询</a></li>
+                                <li><a class="menuItem" data-id="" href="page/balance/pellets.html"><i class="fa fa-feiyong"></i>下沙结算查询</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-xiaoshoubaobiao"></i><span>报表查询</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/chartQuery/status.html"><i class="fa fa-baobiaomingxi"></i>销售流水报表</a></li>
+                                <li><a class="menuItem" data-id="" href="page/chartQuery/runningWater.html"><i class="fa fa-shougongluru"></i>库存报表</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-duizhang"></i><span>库存管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/statusReporting/correspondenceRelationship.html"><i class="fa fa-padluru"></i>虚库库存管理</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-padxinxi"></i><span>对账</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/reconcile/reconcile.html"><i class="fa fa-zhifufangshi"></i>对账</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-zaiguixinxi"></i><span>通知审批</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/examine/bargain.html"><i class="fa fa-diaobo"></i>合同通知审批</a></li>
+                                <li><a class="menuItem" data-id="" href="page/examine/financing.html"><i class="fa fa-jifenchaxun"></i>财务通知审批</a></li>
+                                <li><a class="menuItem" data-id="" href="page/examine/shopping.html"><i class="fa fa-feiyong"></i>卖场通知审批</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-padluru"></i><span>起草通知管理</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/draft/draft.html"><i class="fa fa-duizhang"></i>起草通知</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="javascript:;"><i class="fa fa-jiesuan"></i><span>公告信息</span><i class="fa pull-right fa-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a class="menuItem" data-id="" href="page/basicData/inform.html"><i class="fa fa-baobiao"></i>通知</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--中间内容-->
+        <div id="container" class="container">
+            <!-- 页签 -->
+            <div class="content-tabs">
+                <button class="roll-nav roll-left tabLeft">
+                    <i class="fa fa-backwardfill"></i>
+                </button>
+                <div class="page-tabs menuTabs">
+                    <div class="page-tabs-content">
+                        <a href="javascript:;" class="menuTab active" data-id="page/welcome.html">欢迎页</a>
+                    </div>
+                </div>
+                <button class="roll-nav roll-right tabRight">
+                    <i class="fa fa-forwardfill"></i>
+                </button>
+                <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown-btn tabClose">
+                        页签操作<i class="fa fa-xiala"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a class="tabReload" href="javascript:void(0);">刷新当前页</a></li>
+                            <li><a class="tabCloseCurrent" href="javascript:void(0);">关闭当前页</a></li>
+                            <li><a class="tabCloseOther" href="javascript:void(0);">关闭其它页</a></li>
+                            <li><a class="tabCloseAll" href="javascript:void(0);">全部关闭</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content-iframe">
+                <div class="mainContent" id="content-main">
+                    <iframe class="LRADMS_iframe" width="100%" height="100%" src="page/welcome.html" frameborder="0" data-id="page/welcome.html"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

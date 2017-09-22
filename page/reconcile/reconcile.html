@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>上品折扣后台管理</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/chosen.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/skins.css">
+</head>
+<body>
+<div class="main-page">
+    <div class="mt clearfix">
+        <div class="search-form">
+            <form class="form-inline">
+                <div class="form-group">
+                    <select class="select form-control drop-select" data-placeholder="结算方法" id="fangfa">
+                        <option value="0"></option>
+                        <option value="spgsjsd" data-id="d1">上品公司结算单</option>
+                        <option value="spkjgsfy" data-id="d1">上品科技公司费用</option>
+                        <option value="spzhflfy" data-id="d1">上品综合管理费用</option>
+                        <option value="hzjqjsd" data-id="d1">杭州笕桥结算单</option>
+                        <option value="hzjqzhglf" data-id="d1">杭州笕桥综合管理费</option>
+                        <option value="fjsglf" data-id="d1">非结算管理费用</option>
+                        <option value="hzspjsd" data-id="hzspjsd">杭州上品结算单</option>
+                        <option value="hzspzhglf" data-id="hzspzhglf">杭州上品综合管理费</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label class="label">月份：</label>
+                    <select class="select form-control drop-select" data-placeholder="开始年份" id="kaishi">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="label">至</label>
+                    <select class="select form-control drop-select" data-placeholder="结束年份" id="jieshu">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                    </select>
+                </div>
+                <div class="form-group" id="mendian">
+                    <select class="select form-control drop-select" data-placeholder="门店名称" >
+                        <option value="0"></option>
+                        <option value="1">1001_王府井店</option>
+                        <option value="2">1002_朝阳门店</option>
+                        <option value="3">1003_三里河店</option>
+                        <option value="4">1004_亚运村店</option>
+                        <option value="5">1005_来广营店</option>
+                        <option value="6">1006_中关村店</option>
+                        <option value="7">1007_五棵松店</option>
+                        <option value="8">1008_回龙观店</option>
+                        <option value="9">1009_草桥MALL</option>
+                    </select>
+                </div>
+                <div class="form-group" id="jiesuan">
+                    <select class="select form-control drop-select" data-placeholder="结算标志">
+                        <option value="0"></option>
+                        <option value="1">准许结算</option>
+                        <option value="2">等待纸质合同</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default">查询</button>
+                    <button onclick="resetFilter()" type="button" class="btn btn-default">重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="mt clearfix" id="xuanzhe">
+        <table class="table table-hover" data-id="spgsjsd">
+            <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>年</th>
+                <th>月</th>
+                <th>供应商编号</th>
+                <th>供应商名称</th>
+                <th>门店编号</th>
+                <th>门店名称</th>
+                <th>供应商属性</th>
+                <th>收款金额</th>
+                <th>费用代码</th>
+                <th>费用名称</th>
+                <th>费用金额</th>
+                <th>锁定标识</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox" name="ckbox"></td>
+                <td>2016</td>
+                <td>8</td>
+                <td>0000100468</td>
+                <td>北京元盛宝国际贸易有限公司</td>
+                <td>1001</td>
+                <td>王府井店</td>
+                <td>联营业务</td>
+                <td>25799.75</td>
+                <td>01</td>
+                <td>内卡费用</td>
+                <td>258.00</td>
+                <td>X</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="13">
+                    <div class="pull-right page-box">
+                        <div class="pagination-info">共有1条，每页显示：20条</div>
+                        <ul class="pagination">
+                            <li class="disabled" page-index="1"><a>«</a></li>
+                            <li class="disabled" page-index="0"><a>‹</a></li>
+                            <li class="active" page-index="1"><a>1</a></li>
+                            <li page-index="2"><a>2</a></li>
+                            <li page-index="3"><a>3</a></li>
+                            <li page-index="4"><a>4</a></li>
+                            <li class="disabled" page-index="2"><a>›</a></li>
+                            <li class="disabled" page-index="1"><a>»</a></li>
+                        </ul>
+                        <div class="pagination-goto">
+                            <input type="text" class="ipt form-control" id="gotoPageNo">
+                            <button type="button" class="btn btn-default" id="goBtn">GO</button>
+                            <input type="hidden" id="totalCount" name="totalCount" value="1">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <table class="table table-hover" data-id="spkjgsfy" style="display: none;">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>门店</th>
+                <th>品牌</th>
+                <th>供应商</th>
+                <th>门店编码</th>
+                <th>品牌编码</th>
+                <th>供应商编码</th>
+                <th>上柜日期</th>
+                <th>撤柜日期</th>
+                <th class="text-right">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>653</td>
+                <td>天津店</td>
+                <td>纽百伦</td>
+                <td>北京晟瑞源商贸有限公司</td>
+                <td>9001</td>
+                <td>10085</td>
+                <td>200045</td>
+                <td>2016-09-01</td>
+                <td>2017-09-01</td>
+                <td class="text-right">
+                    <a class="j_delete" href="javascript:modifyFunc();">转移</a>
+                </td>
+            </tr>
+            <tr>
+                <td>652</td>
+                <td>天津店</td>
+                <td>纽百伦</td>
+                <td>北京晟瑞源商贸有限公司</td>
+                <td>9001</td>
+                <td>10085</td>
+                <td>200045</td>
+                <td>2016-09-01</td>
+                <td>2017-09-01</td>
+                <td class="text-right">
+                    <a class="j_delete" href="javascript:modifyFunc();">转移</a>
+                </td>
+            </tr>
+            <tr>
+                <td>647</td>
+                <td>天津店</td>
+                <td>纽百伦</td>
+                <td>北京晟瑞源商贸有限公司</td>
+                <td>9001</td>
+                <td>10085</td>
+                <td>200045</td>
+                <td>2016-09-01</td>
+                <td>2017-09-01</td>
+                <td class="text-right">
+                    <a class="j_delete" href="javascript:modifyFunc();">转移</a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="10">
+                    <div class="pull-left">
+                        <a href="javascript:modi()" type="button" class="btn btn-default">全部导出</a>
+                    </div>
+                    <div class="pull-right page-box">
+                        <div class="pagination-info">共有1条，每页显示：20条</div>
+                        <ul class="pagination">
+                            <li class="disabled" page-index="1"><a>«</a></li>
+                            <li class="disabled" page-index="0"><a>‹</a></li>
+                            <li class="active" page-index="1"><a>1</a></li>
+                            <li page-index="2"><a>2</a></li>
+                            <li page-index="3"><a>3</a></li>
+                            <li page-index="4"><a>4</a></li>
+                            <li class="disabled" page-index="2"><a>›</a></li>
+                            <li class="disabled" page-index="1"><a>»</a></li>
+                        </ul>
+                        <div class="pagination-goto">
+                            <input type="text" class="ipt form-control" id="jgotoPageNo">
+                            <button type="button" class="btn btn-default" id="jgoBtn">GO</button>
+                            <input type="hidden" id="jtotalCount" name="totalCount" value="100">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/jquery.placeholder.min.js"></script>
+<script src="../../js/jquery.chosen.min.js"></script>
+<script src="../../js/layer/layer.js"></script>
+<script src="../../js/laydate/laydate.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+    //编辑
+    $(function(){
+        $('#kaishi').on('change',function(){
+            $('#jieshu').children().removeAttr('disabled');
+            var arr = $('#kaishi').val();
+            $('#jieshu').children().each(function(){
+                var arrs = $(this).val();
+                var kaishi = Number(arr);
+                var jieshu = Number(arrs);
+                if(jieshu < kaishi){
+                    $(this).attr('disabled','disabled');
+                    $("#jieshu").trigger("chosen:updated");
+                }
+            });
+        });
+        $('#jieshu').on('change',function(){
+            $('#kaishi').children().removeAttr('disabled');
+            var ars = $('#jieshu').val();
+            $('#kaishi').children().each(function(){
+                var arv = $(this).val();
+                var varr = Number(ars);
+                var arrv = Number(arv);
+                if(arrv > varr){
+                    $(this).attr('disabled','disabled');
+                    $("#kaishi").trigger("chosen:updated");
+                }
+            });
+        });
+        $('#fangfa').on('change',function () {
+            var arr = $('#fangfa').val();
+            if(arr == "spgsjsd"){
+                $('#jiesuan').show();
+                $('#mendian').show();
+            }else if(arr == "spkjgsfy"){
+                $('#jiesuan').hide();
+                $('#mendian').hide();
+            }else if(arr == "spzhflfy") {
+                $('#jiesuan').hide();
+                $('#mendian').hide();
+            }else if(arr == "hzjqjsd"){
+                $('#jiesuan').show();
+                $('#mendian').show();
+            }else if(arr == "hzjqzhglf"){
+                $('#jiesuan').hide();
+                $('#mendian').hide();
+            }else if(arr == "fjsglf"){
+                $('#jiesuan').hide();
+                $('#mendian').show();
+            }else if(arr == "hzspjsd"){
+                $('#jiesuan').show();
+                $('#mendian').show();
+            }else if(arr == "hzspzhglf") {
+                $('#jiesuan').hide();
+                $('#mendian').hide();
+            }
+            $('#xuanzhe').children().each(function(){
+                var arv = $(this).attr('data-id');
+                if(arv == arr){
+                    $(this).show();
+                    $(this).siblings().hide();
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

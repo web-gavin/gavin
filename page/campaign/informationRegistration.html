@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>上品折扣后台管理</title>
+<link rel="stylesheet" href="../../css/reset.css">
+<link rel="stylesheet" href="../../css/chosen.css">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../../css/skins.css">
+	<style>
+		.form-group{
+			width: 100%!important;
+		}
+	</style>
+</head>
+
+<body>
+<div class="main-page">
+	<div class="form-view form-col-2">
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>请选择：</label>
+			<div class="row">
+				<select class="select form-control drop-select sel-w200" data-placeholder="品牌券" disabled>
+					<option value="0"></option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>使用范围：</label>
+			<div class="row" style="margin-left: 0!important;display: inline-block">
+				<select class="select form-control drop-select sel-w200" data-placeholder="品牌券">
+					<option value="0"></option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+				</select>
+			</div>
+			<span class="date-step-span" style="font-size: 12px;color: #999;">至</span>
+			<div class="row" style="margin-left: 0!important;display: inline-block">
+				<select class="select form-control drop-select sel-w200" data-placeholder="品牌券">
+					<option value="0"></option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>前缀：</label>
+			<div class="row">
+				<input type="text" class="ipt ipt-w200 form-control form-not-null">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>金额：</label>
+			<div class="row">
+				<input type="text" class="ipt ipt-w200 form-control form-not-null">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>订单最小金额：</label>
+			<input type="text" class="ipt ipt-w200 form-control form-not-null">
+			<span class="date-step-span" style="font-size: 12px;color: #999;">订单最大金额</span>
+			<input type="text" class="ipt ipt-w200 form-control form-not-null">
+		</div>
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>券类型：</label>
+			<div class="row">
+				<select class="select form-control drop-select sel-w200" data-placeholder="品牌券">
+					<option value="0"></option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>使用类型：</label>
+			<div class="row">
+				<select class="select form-control drop-select sel-w200" data-placeholder="品牌券">
+					<option value="0"></option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>发放渠道：</label>
+			<div class="row">
+				<select class="select form-control drop-select sel-w200" data-placeholder="品牌券">
+					<option value="0"></option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+					<option value="">品牌券</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="label"><em class="text-danger">*</em>创建时间：</label>
+			<input type="text" id="startDate" name="startDate" size="29" class="ipt form-control laydate-icon"><span class="date-step-span" style="font-size: 12px;color: #999;">至</span>
+			<input type="text" id="endDate" name="endDate" size="29" class="ipt form-control laydate-icon">
+		</div>
+		<div class="form-group">
+			<label class="label">数量：</label>
+			<div class="row">
+				<input type="text" class="ipt ipt-w200 form-control">
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="label">文本域：</label>
+			<div class="row">
+				<textarea class="textarea" form-groups="8" cols=""></textarea>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="label">接收邮箱：</label>
+			<div class="row">
+				<input type="text" class="ipt ipt-w200 form-control">
+			</div>
+		</div>
+		<div class="form-group" style="text-align: center">
+			<button type="button" class="btn btn-default" id="chaxun">查询</button>
+			<button type="button" class="btn btn-default" id="default">重置</button>
+		</div>
+	</div>
+</div>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/jquery.placeholder.min.js"></script>
+<script src="../../js/jquery.chosen.min.js"></script>
+<script src="../../js/layer/layer.js"></script>
+<script src="../../js/laydate/laydate.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+	$(function () {
+        $('#default').click(function () {
+            $(".form-group").find('select').prop('selectedIndex', 0);
+            $(".form-group  ").find('input[type=text]').val("");
+            $(".form-group ").find('textarea').val("");
+            $(".drop-select").each(function (index, el) {
+                var defaultText = $(this).attr('data-placeholder');
+                $(this).next('.chosen-container').find('.chosen-single').addClass('chosen-default');
+                $(this).next('.chosen-container').find('.chosen-single span').text(defaultText);
+            });
+        });
+        $('#chaxun').click(function () {
+            layer.load(2);
+            setTimeout(function(){
+                layer.closeAll('loading');
+            }, 2000);
+        });
+    });
+//上柜、撤柜时间
+var start = {
+	elem: '#startDate',
+	event: 'focus',
+	choose: function(datas){
+		end.min = datas; //开始日选好后，重置结束日的最小日期
+		end.start = datas //将结束日的初始值设定为开始日
+	}
+};
+var end = {
+	elem: '#endDate',
+	event: 'focus',
+	choose: function(datas){
+		start.max = datas; //结束日选好后，重置开始日的最大日期
+	}
+};
+laydate(start);
+laydate(end);
+</script>
+</body>
+</html>

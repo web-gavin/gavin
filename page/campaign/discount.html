@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>上品折扣后台管理</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/chosen.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/skins.css">
+    <style>
+        .divInfo{
+            display: none;
+            width: 600px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid #000;
+            position: absolute;
+            z-index: 9999;
+            right: 50px;
+            top: -50px;
+            overflow: auto;
+        }
+        .divInf{
+            display: none;
+            width: 600px;
+            height: 200px;
+            background-color: white;
+            border: 1px solid #000;
+            position: absolute;
+            z-index: 9999;
+            right: 50px;
+            top: -50px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+<div class="main-page">
+    <div class="mt clearfix">
+        <div class="search-form pull-left">
+            <form class="form-inline">
+                <div style="height: 30px;line-height: 30px;font-size:14px; ">
+                    <label class="label" style="float: left">请选择：</label>
+                    <div class="row" style="float: left;">
+                        <label class="rc label" id="shangping"><input type="radio" name="radio">按商品创建活动</label>
+                        <label class="rc label" id="pinpai"><input type="radio" name="radio">按品牌创建活动</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="select form-control drop-select" data-placeholder="供应商名称">
+                        <option value="0"></option>
+                        <option value="1">A100001_山大盛德门店庆</option>
+                        <option value="2">A100002_山大盛德</option>
+                        <option value="3">A100003_山大盛德</option>
+                        <option value="4">A100004_山大盛德</option>
+                        <option value="5">A100005_山大盛德</option>
+                        <option value="6">A100006_没舛酷察多大事</option>
+                        <option value="7">A100007_山大盛德</option>
+                        <option value="8">A100008_山大盛德</option>
+                        <option value="9">A100009_山大盛德</option>
+                        <option value="10">A100010_山大盛德</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="select form-control drop-select" data-placeholder="品牌名称">
+                        <option value="0"></option>
+                        <option value="1">10085_纽百伦</option>
+                        <option value="2">10086_KingCamp</option>
+                        <option value="1">10087_纽百伦</option>
+                        <option value="2">10088_KingCamp</option>
+                        <option value="1">11285_纽百伦</option>
+                        <option value="2">17981_KingCamp</option>
+                        <option value="1">23415_纽百伦</option>
+                        <option value="2">19874_KingCamp</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" size="30" placeholder="输入款号" class="ipt ipt-w120 form-control">
+                </div>
+                <div class="form-group" >
+                    <label class="label">年份：</label>
+                    <select class="select form-control drop-select" data-placeholder="开始年份" id="kaishi">
+                        <option value="0"></option>
+                        <option value="1">2018年</option>
+                        <option value="2">2017年</option>
+                        <option value="3">2016年</option>
+                        <option value="4">2015年</option>
+                        <option value="5">2014年</option>
+                        <option value="6">2013年</option>
+                        <option value="7">2012年</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="label">至</label>
+                    <select class="select form-control drop-select" data-placeholder="结束年份" id="jieshu">
+                        <option value="0"></option>
+                        <option value="1">2018年</option>
+                        <option value="2">2017年</option>
+                        <option value="3">2016年</option>
+                        <option value="4">2015年</option>
+                        <option value="5">2014年</option>
+                        <option value="6">2013年</option>
+                        <option value="7">2012年</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label class="label">吊牌价</label>
+                    <input type="text" size="30"  class="ipt ipt-w120 form-control" style="width: 50px">
+                </div>
+                <div class="form-group">
+                    <label class="label">至</label>
+                    <input type="text" size="30"  class="ipt ipt-w120 form-control" style="width: 50px">
+                </div>
+                <div class="form-group" >
+                    <label class="label">现价</label>
+                    <input type="text" size="30"  class="ipt ipt-w120 form-control" style="width: 50px">
+                </div>
+                <div class="form-group">
+                    <label class="label">至</label>
+                    <input type="text" size="30"  class="ipt ipt-w120 form-control" style="width: 50px">
+                </div>
+                <div class="form-group" >
+                    <label class="label">折扣：</label>
+                    <select class="select form-control drop-select" data-placeholder="开始折扣" id="kaishizhekou" style="width: 50px">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="label">至</label>
+                    <select class="select form-control drop-select" data-placeholder="结束折扣" id="jieshuzhekou" style="width: 50px">
+                        <option value="0"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="select form-control drop-select" data-placeholder="季节">
+                        <option value="0"></option>
+                        <option value="1">不分季节</option>
+                        <option value="3">春夏</option>
+                        <option value="4">秋冬</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="select form-control drop-select" data-placeholder="门店名称">
+                        <option value="0"></option>
+                        <option value="1">1001_王府井店</option>
+                        <option value="2">1002_朝阳门店</option>
+                        <option value="3">1003_三里河店</option>
+                        <option value="4">1004_亚运村店</option>
+                        <option value="5">1005_来广营店</option>
+                        <option value="6">1006_中关村店</option>
+                        <option value="7">1007_五棵松店</option>
+                        <option value="8">1008_回龙观店</option>
+                        <option value="9">1009_草桥MALL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-default">查询</button>
+                    <button onclick="resetFilter()" type="button" class="btn btn-default">重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="mt clearfix" >
+        <table class="table table-hover" id="shangpingtable" >
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>门店</th>
+                <th>品牌</th>
+                <th>供应商</th>
+                <th>门店编码</th>
+                <th>品牌编码</th>
+                <th>供应商编码</th>
+                <th>上柜日期</th>
+                <th>撤柜日期</th>
+                <th class="text-right">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>647</td>
+                <td>天津店</td>
+                <td>纽百伦</td>
+                <td>北京晟瑞源商贸有限公司</td>
+                <td>9001</td>
+                <td>10085</td>
+                <td>200045</td>
+                <td>2016-09-01</td>
+                <td>2017-09-01</td>
+                <td class="text-right" id="d1" style="position: relative;">
+                    <!--<a class="j_delete" href="javascript:modifyFunc();">转移</a>-->
+                        <a class="j_delete" href="" >查看</a>
+                        <div class="divInfo" >
+                            <i class="fa fa-down"></i>
+                            <table class="table table-hover" style="margin:0;">
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>门店</th>
+                                    <th>品牌</th>
+                                    <th>供应商</th>
+                                    <th>门店编码</th>
+                                    <th>品牌编码</th>
+                                    <th>供应商编码</th>
+                                    <th>上柜日期</th>
+                                    <th>撤柜日期</th>
+                                    <th class="text-right">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>647</td>
+                                    <td>天津店</td>
+                                    <td>纽百伦</td>
+                                    <td>北京晟瑞源商贸有限公司</td>
+                                    <td>9001</td>
+                                    <td>10085</td>
+                                    <td>200045</td>
+                                    <td>2016-09-01</td>
+                                    <td>2017-09-01</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                        </div>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="10">
+                    <div class="pull-left">
+                        <a href="javascript:modi()" type="button" class="btn btn-default">选为活动商品</a>
+                        <a href="page/campaign/list.html" type="button" class="btn btn-default" id="chakan">查看已选商品</a>
+                    </div>
+                    <div class="pull-right page-box">
+                        <div class="pagination-info">共有1条，每页显示：20条</div>
+                        <ul class="pagination">
+                            <li class="disabled" page-index="1"><a>«</a></li>
+                            <li class="disabled" page-index="0"><a>‹</a></li>
+                            <li class="active" page-index="1"><a>1</a></li>
+                            <li page-index="2"><a>2</a></li>
+                            <li page-index="3"><a>3</a></li>
+                            <li page-index="4"><a>4</a></li>
+                            <li class="disabled" page-index="2"><a>›</a></li>
+                            <li class="disabled" page-index="1"><a>»</a></li>
+                        </ul>
+                        <div class="pagination-goto">
+                            <input type="text" class="ipt form-control" id="gotoPageNo">
+                            <button type="button" class="btn btn-default" id="goBtn">GO</button>
+                            <input type="hidden" id="totalCount" name="totalCount" value="100">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        <table class="table table-hover"  id="pinpaitable" style="display: none;">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>门店</th>
+                <th>品牌</th>
+                <th>供应商</th>
+                <th>门店编码</th>
+                <th>品牌编码</th>
+                <th>供应商编码</th>
+                <th>上柜日期</th>
+                <th>撤柜日期</th>
+                <th class="text-right">更改</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>647</td>
+                <td>天津店</td>
+                <td>纽百伦</td>
+                <td>北京晟瑞源商贸有限公司</td>
+                <td>9001</td>
+                <td>10085</td>
+                <td>200045</td>
+                <td>2016-09-01</td>
+                <td>2017-09-01</td>
+                <td class="text-right css" style="position: relative;">
+                    <a class="j_delete" href="" >查看</a>
+                    <div class="divInf" >
+                        <table class="table table-hover" style="margin:0;">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>门店</th>
+                                <th>品牌</th>
+                                <th>供应商</th>
+                                <th>门店编码</th>
+                                <th>品牌编码</th>
+                                <th>供应商编码</th>
+                                <th>上柜日期</th>
+                                <th>撤柜日期</th>
+                                <th class="text-right">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>647</td>
+                                <td>天津店</td>
+                                <td>纽百伦</td>
+                                <td>北京晟瑞源商贸有限公司</td>
+                                <td>9001</td>
+                                <td>10085</td>
+                                <td>200045</td>
+                                <td>2016-09-01</td>
+                                <td>2017-09-01</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>647</td>
+                <td>天津店</td>
+                <td>纽百伦</td>
+                <td>北京晟瑞源商贸有限公司</td>
+                <td>9001</td>
+                <td>10085</td>
+                <td>200045</td>
+                <td>2016-09-01</td>
+                <td>2017-09-01</td>
+                <td class="text-right css" style="position: relative;">
+                    <a class="j_delete" href="" >查看</a>
+                    <div class="divInf" >
+                        <table class="table table-hover" style="margin:0;">
+                            <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th>门店</th>
+                                <th>品牌</th>
+                                <th>供应商</th>
+                                <th>门店编码</th>
+                                <th>品牌编码</th>
+                                <th>供应商编码</th>
+                                <th>上柜日期</th>
+                                <th>撤柜日期</th>
+                                <th class="text-right">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>647</td>
+                                <td>天津店</td>
+                                <td>纽百伦</td>
+                                <td>北京晟瑞源商贸有限公司</td>
+                                <td>9001</td>
+                                <td>10085</td>
+                                <td>200045</td>
+                                <td>2016-09-01</td>
+                                <td>2017-09-01</td>
+                            </tr>
+                            </tbody>
+                            <tfoot>
+                            </tfoot>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="10">
+                    <div class="pull-left">
+                        <a href="javascript:modi()" type="button" class="btn btn-default">选为活动商品</a>
+                        <a href="page/campaign/list.html" type="button" class="btn btn-default" id="chuangjian">查看已选商品</a>
+                    </div>
+                    <div class="pull-right page-box">
+                        <div class="pagination-info">共有1条，每页显示：20条</div>
+                        <ul class="pagination">
+                            <li class="disabled" page-index="1"><a>«</a></li>
+                            <li class="disabled" page-index="0"><a>‹</a></li>
+                            <li class="active" page-index="1"><a>1</a></li>
+                            <li page-index="2"><a>2</a></li>
+                            <li page-index="3"><a>3</a></li>
+                            <li page-index="4"><a>4</a></li>
+                            <li class="disabled" page-index="2"><a>›</a></li>
+                            <li class="disabled" page-index="1"><a>»</a></li>
+                        </ul>
+                        <div class="pagination-goto">
+                            <input type="text" class="ipt form-control" id="1gotoPageNo">
+                            <button type="button" class="btn btn-default" id="1goBtn">GO</button>
+                            <input type="hidden" id="1totalCount" name="totalCount" value="100">
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script src="../../js/jquery-1.8.3.min.js"></script>
+<script src="../../js/jquery.placeholder.min.js"></script>
+<script src="../../js/jquery.chosen.min.js"></script>
+<script src="../../js/layer/layer.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+    function modi(){
+        layer.confirm('确认要选为活动商品吗？', {icon: 3, title:'提示'}, function(index){
+            layer.msg('操作成功');
+            layer.close(index);
+        });
+    }
+    //修改
+    $(function(){
+        $('#kaishi').on('change',function(){
+            $('#jieshu').children().removeAttr('disabled');
+            var arr = $('#kaishi').val();
+            $('#jieshu').children().each(function(){
+                var arrs = $(this).val();
+                var kaishi = Number(arr);
+                var jieshu = Number(arrs);
+                if(jieshu > kaishi){
+                    $(this).attr('disabled','disabled');
+                    $("#jieshu").trigger("chosen:updated");
+                }
+            });
+        });
+        $('#jieshu').on('change',function(){
+            $('#kaishi').children().removeAttr('disabled');
+            var ars = $('#jieshu').val();
+            $('#kaishi').children().each(function(){
+                var arv = $(this).val();
+                var varr = Number(ars);
+                var arrv = Number(arv);
+                if(arrv < varr){
+                    $(this).attr('disabled','disabled');
+                    $("#kaishi").trigger("chosen:updated");
+                }
+            });
+        });
+        $('#kaishizhekou').on('change',function(){
+            $('#jieshuzhekou').children().removeAttr('disabled');
+            var arr = $('#kaishizhekou').val();
+            $('#jieshuzhekou').children().each(function(){
+                var arrs = $(this).val();
+                var kaishi = Number(arr);
+                var jieshu = Number(arrs);
+                if(jieshu < kaishi){
+                    $(this).attr('disabled','disabled');
+                    $("#jieshuzhekou").trigger("chosen:updated");
+                }
+            });
+        });
+        $('#jieshuzhekou').on('change',function(){
+            $('#kaishizhekou').children().removeAttr('disabled');
+            var ars = $('#jieshuzhekou').val();
+            $('#kaishizhekou').children().each(function(){
+                var arv = $(this).val();
+                var varr = Number(ars);
+                var arrv = Number(arv);
+                if(arrv > varr){
+                    $(this).attr('disabled','disabled');
+                    $("#kaishizhekou").trigger("chosen:updated");
+                }
+            });
+        });
+        //选择查询方法
+        $('#shangping').on('change',function(){
+            var arr = $('#shangping').children().val();
+            if(arr == "on"){
+                $('#shangping').parent().parent().siblings().show();
+                $('#shangpingtable').show();
+                $('#pinpaitable').hide();
+            }
+        });
+        $('#pinpai').on('change',function(){
+            var arr = $('#pinpai').children().val();
+            if(arr == "on"){
+                $('#pinpai').parent().parent().siblings().hide();
+                $('#pinpai').parent().parent().next().show();
+                $('#shangpingtable').hide();
+                $('#pinpaitable').show();
+            }
+        });
+        $('.text-right').hover(function(){
+            $(this).children('div').css("display","block");
+        },function(){
+            $(this).children('div').css("display","none");
+        });
+        $('.css').hover(function(){
+            $(this).children('div').css("display","block");
+        },function(){
+            $(this).children('div').css("display","none");
+        });
+        $('#chakan').on('click',parent.$.learuntab.addTab);
+        $('#chuangjian').on('click',parent.$.learuntab.addTab);
+    })
+</script>
+</body>
+</html>
